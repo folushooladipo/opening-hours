@@ -1,0 +1,6 @@
+.opening-hours-container {
+  border: 1px solid black;
+  width: 30%;
+  min-width: 400px;
+  margin: 5rem auto;
+}
