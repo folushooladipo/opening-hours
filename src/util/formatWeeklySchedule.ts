@@ -4,6 +4,7 @@ import {capitalize, getTwelveHourFormat} from "."
 const formatWeeklySchedule = (someSchedule: SortedDailySchedule[]): FormattedDailySchedule[] => {
   const schedule: FormattedDailySchedule[] = []
 
+  // TODO: I think there's a way to flatten this into one while loop that uses two counters to keep track of dayIndex and periodIndex. Inspired by how I flattened the loops in the constructor for Percolation().
   for (let dayIndex = 0; dayIndex < someSchedule.length; dayIndex++) {
     const {day, timetable} = someSchedule[dayIndex]
     const capitalizedDay = capitalize(day) as CapitalizedDayName

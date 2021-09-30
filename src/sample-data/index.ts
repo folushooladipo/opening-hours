@@ -1,3 +1,7 @@
+// TODO: maybe I need to move these into separate foo.json files? Or what does this mean:
+// "A minimum requirement is to read JSON data from a file and output opening hours in a view that is
+// designed based on the layouts provided. However, this is where you can dazzle us with your platform
+// specific skills."
 export const scheduleWithTwoMultiDaySlots: WeeklySchedule = {
   monday: [],
   tuesday: [
