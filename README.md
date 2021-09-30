@@ -1,6 +1,8 @@
 # TODO
 - State that Node 14+ is needed.
 
+# Reasonable extra features
+- Each row in the schedule is highlighted when hovered.
 
 # Getting Started with Create React App
 

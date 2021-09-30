@@ -1,5 +1,7 @@
 import React  from "react"
 
+import {CLOSED_STATUS_TEXT} from "../../values"
+
 import "./DailyScheduleRow.scss"
 
 export interface IDailyScheduleRowProps {
@@ -14,13 +16,17 @@ const DailyScheduleRow: React.FunctionComponent<IDailyScheduleRowProps> = ({
   schedule,
 }) => (
   <div className="daily-schedule-row">
-    <div className="day-name">
+    <div className="day-name bold-small">
       {schedule.day}
       {
         isToday && <span className="today-label">{TODAY_LABEL}</span>
       }
     </div>
-    {schedule.label}
+    <div
+      className={schedule.label === CLOSED_STATUS_TEXT ? "time-label closed" : "time-label"}
+    >
+      {schedule.label}
+    </div>
   </div>
 )
 
