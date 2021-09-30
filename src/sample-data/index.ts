@@ -14,7 +14,7 @@ export const scheduleWithMultiDaySlots: WeeklySchedule = {
     {type: "close", value: 64800},
   ],
   friday: [
-    {type: "open", value: 36000},
+    {type: "open", value: 28800},
   ],
   saturday: [
     {type: "close", value: 3600},
@@ -80,7 +80,7 @@ export const scheduleWithOddTimetables: WeeklySchedule = {
     {type: "close", value: 43140}, // 11:59 AM = SECONDS_IN_TWELVE_HOURS - SECONDS_IN_ONE_MINUTE
   ],
   friday: [
-    {type: "open", value: 64800}, // 6 PM
+    {type: "open", value: 65700}, // 6:15 PM
   ],
   saturday: [
     {type: "close", value: 4800}, // 1:20 AM

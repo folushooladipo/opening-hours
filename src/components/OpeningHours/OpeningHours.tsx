@@ -18,9 +18,9 @@ const OpeningHours: React.FunctionComponent<IOpeningHoursProps> = ({
   <div className="opening-hours-container">
     <div className="title-container">
       <Schedule
+        className="icon"
         size="25"
         title={TITLE_FOR_SCHEDULE_ICON}
-        className="icon"
       />
       <h2 className="title bold-large">
         {OPENING_HOURS_TITLE}

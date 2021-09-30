@@ -9,7 +9,7 @@ export interface IDailyScheduleRowProps {
   schedule: FormattedDailySchedule;
 }
 
-const TODAY_LABEL = "TODAY"
+export const TODAY_LABEL = "TODAY"
 
 const DailyScheduleRow: React.FunctionComponent<IDailyScheduleRowProps> = ({
   isToday,
@@ -18,9 +18,7 @@ const DailyScheduleRow: React.FunctionComponent<IDailyScheduleRowProps> = ({
   <div className="daily-schedule-row">
     <div className="day-name bold-small">
       {schedule.day}
-      {
-        isToday && <span className="today-label">{TODAY_LABEL}</span>
-      }
+      {isToday && <span className="today-label">{TODAY_LABEL}</span>}
     </div>
     <div
       className={schedule.label === CLOSED_STATUS_TEXT ? "time-label closed" : "time-label"}
