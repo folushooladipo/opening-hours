@@ -63,13 +63,7 @@
         "keywords": true
       }
     ],
-    "sort-imports": [
-      "error",
-      {
-        "allowSeparatedGroups": true,
-        "memberSyntaxSortOrder": [ "none", "all", "single", "multiple" ]
-      }
-    ],
+    "sort-imports": [ "off" ],
     "curly": "error",
     "arrow-parens": [
       "error",

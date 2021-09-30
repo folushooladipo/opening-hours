@@ -2,10 +2,10 @@
 // "A minimum requirement is to read JSON data from a file and output opening hours in a view that is
 // designed based on the layouts provided. However, this is where you can dazzle us with your platform
 // specific skills."
-export const scheduleWithTwoMultiDaySlots: WeeklySchedule = {
+export const scheduleWithMultiDaySlots: WeeklySchedule = {
   monday: [],
   tuesday: [
-    {type: "open", value: 36000},
+    {type: "open", value: 32400},
     {type: "close", value: 64800},
   ],
   wednesday: [],
@@ -21,13 +21,13 @@ export const scheduleWithTwoMultiDaySlots: WeeklySchedule = {
     {type: "open", value: 36000},
   ],
   sunday: [
-    {type: "close", value: 3600},
+    {type: "close", value: 7200},
     {type: "open", value: 43200},
     {type: "close", value: 75600},
   ],
 }
 
-export const scheduleWithMinutePortions: WeeklySchedule = {
+export const scheduleWithHoursAndMinutes: WeeklySchedule = {
   monday: [],
   tuesday: [
     {type: "open", value: 34200}, // 9:30 AM

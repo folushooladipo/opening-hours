@@ -9,6 +9,8 @@ export interface IOpeningHoursProps {
   today: CapitalizedDayName;
 }
 
+export const TITLE_FOR_SCHEDULE_ICON = "Schedule icon"
+export const OPENING_HOURS_TITLE = "Opening hours"
 const OpeningHours: React.FunctionComponent<IOpeningHoursProps> = ({
   formattedSchedule,
   today,
@@ -17,10 +19,11 @@ const OpeningHours: React.FunctionComponent<IOpeningHoursProps> = ({
     <div className="title-container">
       <Schedule
         size="25"
+        title={TITLE_FOR_SCHEDULE_ICON}
         className="icon"
       />
       <h2 className="title bold-large">
-        Opening hours
+        {OPENING_HOURS_TITLE}
       </h2>
     </div>
     <div className="daily-hours-rows">
