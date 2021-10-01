@@ -47,3 +47,4 @@ I made the app responsive. Resize your browser window to see this in action.
 ## Reasonable extra features
 - Each row in the schedule is highlighted when hovered.
 - The schedule can display fractional times like 12:01 AM, 3:42 PM etc.
+- The "TODAY" tag is not hardcoded. Instead, it is determined using the actual weekday on which you view the app.
