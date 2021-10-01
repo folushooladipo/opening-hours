@@ -3,6 +3,7 @@ import formatWeeklySchedule from "./formatWeeklySchedule"
 import getToday from "./getToday"
 import getTwelveHourFormat from "./getTwelveHourFormat"
 
+export * from "./getTwelveHourFormat"
 export {
   capitalize,
   formatWeeklySchedule,

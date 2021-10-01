@@ -21,3 +21,13 @@ export const SECONDS_IN_ONE_HOUR = SECONDS_IN_ONE_MINUTE * 60
 export const SECONDS_IN_TWELVE_HOURS = SECONDS_IN_ONE_HOUR * 12
 
 export const SECONDS_IN_A_DAY = SECONDS_IN_TWELVE_HOURS * 2
+
+export const JS_WEEK_OUTLINE: CapitalizedDayName[] = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+]
