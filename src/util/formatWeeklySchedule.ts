@@ -30,16 +30,15 @@ const formatWeeklySchedule = (someSchedule: SortedDailySchedule[]): FormattedDai
 
       const openingTime = timetable[timeIndex]
       const labelForOpeningTime = getTwelveHourFormat(openingTime.value)
+
       let closingTime = timetable[timeIndex + 1]
       if (!closingTime) {
         const lengthOfWeek = someSchedule.length
-        // NB: this logic will wrap around from the last day of the week to
-        // the first day e.g Saturday => Sunday.
-        // NB: This assumes that closing time can at most be 1 day away.
         const indexOfNextDay = (dayIndex + 1) % lengthOfWeek
         closingTime = someSchedule[indexOfNextDay].timetable[0]
       }
       const labelForClosingTime = getTwelveHourFormat(closingTime.value)
+
       hoursText = hoursText.length > 0
         ? `${hoursText}${SINGLE_COMMA} ${labelForOpeningTime} - ${labelForClosingTime}`
         : `${labelForOpeningTime} - ${labelForClosingTime}`
