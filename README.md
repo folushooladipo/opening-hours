@@ -1,52 +1,49 @@
-# TODO
-- State that Node 14+ is needed.
+# Introduction
+I am [Folusho Oladipo](https://www.linkedin.com/in/folushooladipo/) and I am a candidate for Wolt's Senior Frontend/Fullstack Engineer position. This is my submission for the take-home assignment.
 
-# Reasonable extra features
+## Required software
+In order to run this app, you need to have the following installed:
+* Node.js v14 or later: I suggest you consider installing [nvm](https://github.com/nvm-sh/nvm) and use it to easily switch between versions of Node. Otherwise, head over to the [Node.js website](https://nodejs.org/en/) for installation instructions.
+* Yarn v1.22.10 or later: Yarn is a fast and open-source package manager for JavaScript packages. Head over to [their website](https://yarnpkg.com/) for installation instructions.
+
+## Getting started
+* Open a terminal/command prompt.
+* Install the app's dependencies by running this command:
+```bash
+yarn
+```
+* Start the app by running the command below. It will open the app in a new browser window at `http://localhost:3000/`
+```bash
+yarn start
+```
+
+## Tech stack
+* TypeScript
+* React
+* Node.js
+* Yarn
+* ESLint
+* Git
+* Jest
+* React Testing Library
+* SCSS
+* Create React App
+
+## Tests
+I have written extensive unit and integration tests for the functions and React components that I created. They are contained in `**/*.test.ts` or `**/*.test.tsx` files. Please run the command below to see them in action:
+```bash
+yarn test
+````
+
+## Code quality
+I setup ESLint immediately after I initialized this repository. You can review my rules in `./.eslintrc.json`. You can also run the command below to lint the project for errors or warnings:
+```bash
+yarn lint
+```
+
+## Responsiveness
+I made the app responsive. Resize your browser window to see this in action.
+
+## Reasonable extra features
 - Each row in the schedule is highlighted when hovered.
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- The schedule can display fractional times like 12:01 AM, 3:42 PM etc.
