@@ -18,3 +18,9 @@ body {
   font-size: 18px;
   font-weight: 700;
 }
+
+@media screen and (max-width: 400px) {
+  .bold-large {
+    font-size: 26px;
+  }
+}
