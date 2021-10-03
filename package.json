@@ -32,7 +32,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --runInBand --watchAll",
+    "test": "react-scripts test --runInBand",
     "eject": "react-scripts eject",
     "lint": "eslint .",
     "lint-and-fix": "eslint --fix ."
