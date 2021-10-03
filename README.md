@@ -48,3 +48,4 @@ I made the app responsive. Resize your browser window to see this in action.
 - Each row in the schedule is highlighted when hovered.
 - The schedule can display fractional times like 12:01 AM, 3:42 PM etc.
 - The "TODAY" tag is not hardcoded. Instead, it is determined using the actual weekday on which you view the app.
+- Apart from reading my unit tests or editing my code, I added a dropdown that enables you to use different data for the schedule presenter. To see it, visit `http://localhost:3000/?dataSwitching=on`.

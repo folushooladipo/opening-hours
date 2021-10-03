@@ -6,12 +6,12 @@
   width: 350px;
   margin: $lg-gutter-size auto;
 
-  .something-extra {
-    margin-top: 4rem;
-  }
-
   .select-search {
     width: 100%;
+
+    & + .opening-hours-container {
+      margin-top: 2rem;
+    }
   }
 }
 

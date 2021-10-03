@@ -59,37 +59,50 @@ const labelToScheduleMap: {[key: string]: FormattedDailySchedule[]} = {
 
 export interface IAppState {
   selectedData: string;
+  shouldEnableDataSwitching: boolean;
 }
 
 export default class App extends React.Component<Record<string, never>, IAppState> {
   constructor(props: Record<string, never>) {
     super(props)
 
+    const queryParams = new URLSearchParams(location.search)
+    const shouldEnableDataSwitching = queryParams.get("dataSwitching")?.toLowerCase() === "on"
     this.state = {
       selectedData: closesNextDayLabel,
+      shouldEnableDataSwitching,
     }
   }
 
   render(): React.ReactNode {
-    const {selectedData} = this.state
+    const {selectedData, shouldEnableDataSwitching} = this.state
     const formattedSchedule = labelToScheduleMap[selectedData]
     const today = getToday()
 
     return (
       <div className="app-container">
+        {
+          shouldEnableDataSwitching &&
+          [
+            <p
+              key="something-extra"
+              className="something-extra"
+            >
+              Choose other schedule data
+            </p>,
+            <SelectSearch
+              key="select-search"
+              options={searchOptions}
+              value={selectedData}
+              onChange={(value: unknown) =>
+                this.setState({selectedData: value as string})
+              }
+            />,
+          ]
+        }
         <OpeningHours
           formattedSchedule={formattedSchedule}
           today={today}
-        />
-        <p className="something-extra">
-          Extra feature: choose other schedule data
-        </p>
-        <SelectSearch
-          options={searchOptions}
-          value={selectedData}
-          onChange={(value: unknown) =>
-            this.setState({selectedData: value as string})
-          }
         />
       </div>
     )
