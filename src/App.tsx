@@ -33,9 +33,9 @@ const forHoursAndMinutes = formatWeeklySchedule(
   }))
 )
 
-const closesNextDayLabel = "Typical schedule. Also has slots that close on the next day"
-const hoursAndMinutesLabel = "Times that have both hour and minute portions"
-const oddTimetableLabel = "Odd timetable e.g opens and closes many times daily"
+export const closesNextDayLabel = "Typical schedule. Also has slots that close on the next day."
+export const hoursAndMinutesLabel = "Times that have both hour and minute portions."
+const oddTimetableLabel = "Odd timetable e.g opens and closes many times daily."
 const searchOptions: SelectSearchOption[] = [
   {
     name: closesNextDayLabel,
@@ -57,22 +57,30 @@ const labelToScheduleMap: {[key: string]: FormattedDailySchedule[]} = {
   [oddTimetableLabel]: forOddTimetable,
 }
 
-export interface IAppState {
-  selectedData: string;
-  shouldEnableDataSwitching: boolean;
+export const TITLE_FOR_DATA_SWITCHER = "Choose other schedule data"
+export const DATA_SWITCHER_INPUT_PLACEHOLDER = "Search"
+
+export interface IAppProps {
+  enableDataSwitching?: boolean;
 }
 
-export default class App extends React.Component<Record<string, never>, IAppState> {
-  constructor(props: Record<string, never>) {
+export interface IAppState {
+  canSwitchData: boolean;
+  selectedData: string;
+}
+
+export default class App extends React.Component<IAppProps, IAppState> {
+  constructor(props: IAppProps) {
     super(props)
 
     this.getOptionsFilter = this.getOptionsFilter.bind(this)
 
-    const queryParams = new URLSearchParams(location.search)
-    const shouldEnableDataSwitching = queryParams.get("dataSwitching")?.toLowerCase() === "on"
+    const canSwitchData = typeof props.enableDataSwitching === "boolean"
+      ? props.enableDataSwitching
+      : (new URLSearchParams(location.search)).get("dataSwitching")?.toLowerCase() === "on"
     this.state = {
+      canSwitchData,
       selectedData: closesNextDayLabel,
-      shouldEnableDataSwitching,
     }
   }
 
@@ -82,31 +90,33 @@ export default class App extends React.Component<Record<string, never>, IAppStat
         return options
       }
 
-      return options.filter((option) => option.name.toLowerCase().includes(query.toLowerCase()))
+      return options.filter((option) =>
+        option.name.toLowerCase().includes(query.toLowerCase())
+      )
     }
   }
 
   render(): React.ReactNode {
-    const {selectedData, shouldEnableDataSwitching} = this.state
+    const {selectedData, canSwitchData} = this.state
     const formattedSchedule = labelToScheduleMap[selectedData]
     const today = getToday()
 
     return (
       <div className="app-container">
         {
-          shouldEnableDataSwitching &&
+          canSwitchData &&
           [
             <p
-              key="something-extra"
-              className="something-extra"
+              key="data-switcher-title"
+              className="data-switcher-title"
             >
-              Choose other schedule data
+              {TITLE_FOR_DATA_SWITCHER}
             </p>,
             <SelectSearch
               key="select-search"
               options={searchOptions}
               value={selectedData}
-              placeholder="Search"
+              placeholder={DATA_SWITCHER_INPUT_PLACEHOLDER}
               search
               filterOptions={this.getOptionsFilter}
               onChange={(value: unknown) =>
