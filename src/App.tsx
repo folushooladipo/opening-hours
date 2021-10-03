@@ -66,11 +66,23 @@ export default class App extends React.Component<Record<string, never>, IAppStat
   constructor(props: Record<string, never>) {
     super(props)
 
+    this.getOptionsFilter = this.getOptionsFilter.bind(this)
+
     const queryParams = new URLSearchParams(location.search)
     const shouldEnableDataSwitching = queryParams.get("dataSwitching")?.toLowerCase() === "on"
     this.state = {
       selectedData: closesNextDayLabel,
       shouldEnableDataSwitching,
+    }
+  }
+
+  getOptionsFilter(options: SelectSearchOption[]): ((query: string) => SelectSearchOption[]) {
+    return (query: string): SelectSearchOption[] => {
+      if (typeof query !== "string" || !query.length) {
+        return options
+      }
+
+      return options.filter((option) => option.name.toLowerCase().includes(query.toLowerCase()))
     }
   }
 
@@ -94,6 +106,9 @@ export default class App extends React.Component<Record<string, never>, IAppStat
               key="select-search"
               options={searchOptions}
               value={selectedData}
+              placeholder="Search"
+              search
+              filterOptions={this.getOptionsFilter}
               onChange={(value: unknown) =>
                 this.setState({selectedData: value as string})
               }
