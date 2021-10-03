@@ -1,5 +1,5 @@
 import React from "react"
-import SelectSearch, {SelectSearchOption} from "react-select-search"
+import SelectSearch from "react-select-search/dist/cjs/index.js"
 
 import "./App.scss"
 import {ORDERED_WEEK_DAYS} from "./values"
@@ -87,8 +87,8 @@ export default class App extends React.Component<Record<string, never>, IAppStat
         <SelectSearch
           options={searchOptions}
           value={selectedData}
-          onChange={(value) =>
-            this.setState({selectedData: value as unknown as string})
+          onChange={(value: unknown) =>
+            this.setState({selectedData: value as string})
           }
         />
       </div>
