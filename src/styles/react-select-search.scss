@@ -76,6 +76,20 @@
   overflow: auto;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.select-search.has-focus .select-search__select {
+  animation: .5s fadeIn;
+}
+
 /**
 * Options
 */

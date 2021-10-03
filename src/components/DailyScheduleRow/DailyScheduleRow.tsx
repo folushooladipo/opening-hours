@@ -21,7 +21,11 @@ const DailyScheduleRow: React.FunctionComponent<IDailyScheduleRowProps> = ({
       {isToday && <span className="today-label">{TODAY_LABEL}</span>}
     </div>
     <div
-      className={schedule.label === CLOSED_STATUS_TEXT ? "time-label closed" : "time-label"}
+      className={
+        schedule.label === CLOSED_STATUS_TEXT
+          ? "time-label closed"
+          : "time-label"
+      }
     >
       {schedule.label}
     </div>
