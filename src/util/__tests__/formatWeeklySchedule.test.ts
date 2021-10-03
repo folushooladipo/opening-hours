@@ -1,12 +1,8 @@
 import {formatWeeklySchedule} from ".."
 import {scheduleWithHoursAndMinutes} from "../../sample-data"
-import {CLOSED_STATUS_TEXT, ORDERED_WEEK_DAYS} from "../../values"
+import {CLOSED_STATUS_TEXT} from "../../values"
 
-const sortedSchedule: SortedDailySchedule[] = ORDERED_WEEK_DAYS.map((day) => ({
-  day,
-  timetable: scheduleWithHoursAndMinutes[day],
-}))
-const schedule = formatWeeklySchedule(sortedSchedule)
+const schedule = formatWeeklySchedule(scheduleWithHoursAndMinutes)
 
 describe("formatWeeklySchedule", () => {
   test("determines and capitalizes the name of each weekday", () => {

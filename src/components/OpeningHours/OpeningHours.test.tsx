@@ -1,19 +1,12 @@
 import React from "react"
 import {render} from "@testing-library/react"
 
-import {
-  scheduleWithMultiDaySlots,
-} from "../../sample-data"
+import {scheduleWithClosesNextDaySlots} from "../../sample-data"
 import {CLOSED_STATUS_TEXT, ORDERED_WEEK_DAYS} from "../../values"
 import {OpeningHours, OPENING_HOURS_TITLE, TITLE_FOR_SCHEDULE_ICON} from "."
 import {capitalize, formatWeeklySchedule, getToday} from "../../util"
 
-const commonSchedule: FormattedDailySchedule[] = formatWeeklySchedule(
-  ORDERED_WEEK_DAYS.map((day) => ({
-    day,
-    timetable: scheduleWithMultiDaySlots[day],
-  }))
-)
+const commonSchedule = formatWeeklySchedule(scheduleWithClosesNextDaySlots)
 
 describe("OpeningHours", () => {
   const today = getToday()

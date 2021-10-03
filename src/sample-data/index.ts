@@ -1,4 +1,4 @@
-export const scheduleWithMultiDaySlots: WeeklySchedule = {
+export const scheduleWithClosesNextDaySlots: WeeklySchedule = {
   monday: [],
   tuesday: [
     {type: "open", value: 32400},
@@ -53,7 +53,7 @@ export const scheduleWithHoursAndMinutes: WeeklySchedule = {
   ],
 }
 
-export const scheduleWithOddTimetables: WeeklySchedule = {
+export const scheduleWithOddTimetable: WeeklySchedule = {
   monday: [
     // Note: since all Monday has is a "Closed entry" that is for Sunday, it should show "Closed" itself.
     {type: "close", value: 12780}, // 3:33 AM

@@ -16,11 +16,6 @@ declare type WeeklySchedule = {
   [key in DayName]: OpenOrClosedTime[];
 }
 
-declare type SortedDailySchedule = {
-  day: DayName;
-  timetable: OpenOrClosedTime[];
-}
-
 declare type CapitalizedDayName =
   "Monday" |
   "Tuesday" |

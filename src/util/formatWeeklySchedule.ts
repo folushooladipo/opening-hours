@@ -1,17 +1,19 @@
-import {CLOSED_STATUS_TEXT, SINGLE_COMMA} from "../values"
+import {CLOSED_STATUS_TEXT, ORDERED_WEEK_DAYS, SINGLE_COMMA} from "../values"
 import {capitalize, getTwelveHourFormat} from "."
 
-const formatWeeklySchedule = (someSchedule: SortedDailySchedule[]): FormattedDailySchedule[] => {
-  const schedule: FormattedDailySchedule[] = []
+const formatWeeklySchedule = (schedule: WeeklySchedule): FormattedDailySchedule[] => {
+  const weekLength = ORDERED_WEEK_DAYS.length
+  const formattedSchedule: FormattedDailySchedule[] = []
 
   // TODO: I think there's a way to flatten this into one while loop that uses two counters to keep track of dayIndex and periodIndex. Inspired by how I flattened the loops in the constructor for Percolation().
-  for (let dayIndex = 0; dayIndex < someSchedule.length; dayIndex++) {
-    const {day, timetable} = someSchedule[dayIndex]
+  for (let dayIndex = 0; dayIndex < weekLength; dayIndex++) {
+    const day = ORDERED_WEEK_DAYS[dayIndex]
     const capitalizedDay = capitalize(day) as CapitalizedDayName
+    const timetable = schedule[day]
     if (timetable.length === 0 ||
       (timetable.length === 1 && timetable[0].type === "close")
     ) {
-      schedule[dayIndex] = {
+      formattedSchedule[dayIndex] = {
         day: capitalizedDay,
         label: CLOSED_STATUS_TEXT,
       }
@@ -33,9 +35,10 @@ const formatWeeklySchedule = (someSchedule: SortedDailySchedule[]): FormattedDai
 
       let closingTime = timetable[timeIndex + 1]
       if (!closingTime) {
-        const lengthOfWeek = someSchedule.length
-        const indexOfNextDay = (dayIndex + 1) % lengthOfWeek
-        closingTime = someSchedule[indexOfNextDay].timetable[0]
+        const indexOfNextDay = (dayIndex + 1) % weekLength
+        const nextDay = ORDERED_WEEK_DAYS[indexOfNextDay]
+        const nextDayTimetable = schedule[nextDay]
+        closingTime = nextDayTimetable[0]
       }
       const labelForClosingTime = getTwelveHourFormat(closingTime.value)
 
@@ -46,13 +49,13 @@ const formatWeeklySchedule = (someSchedule: SortedDailySchedule[]): FormattedDai
       timeIndex += 2
     }
 
-    schedule[dayIndex] = {
+    formattedSchedule[dayIndex] = {
       day: capitalizedDay,
       label: hoursText,
     }
   }
 
-  return schedule
+  return formattedSchedule
 }
 
 export default formatWeeklySchedule

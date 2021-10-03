@@ -2,36 +2,17 @@ import React from "react"
 import SelectSearch from "react-select-search/dist/cjs/index.js"
 
 import "./App.scss"
-import {ORDERED_WEEK_DAYS} from "./values"
 import {OpeningHours} from "./components"
 import {
+  scheduleWithClosesNextDaySlots,
   scheduleWithHoursAndMinutes,
-  scheduleWithMultiDaySlots,
-  scheduleWithOddTimetables,
+  scheduleWithOddTimetable,
 } from "./sample-data"
 import {formatWeeklySchedule, getToday} from "./util"
 
-// TODO: make formatWeeklySchedule() to take WeeklySchedule instead of SortedDailySchedule.
-const forClosesNextDay = formatWeeklySchedule(
-  ORDERED_WEEK_DAYS.map((day) => ({
-    day,
-    timetable: scheduleWithMultiDaySlots[day],
-  }))
-)
-
-const forOddTimetable = formatWeeklySchedule(
-  ORDERED_WEEK_DAYS.map((day) => ({
-    day,
-    timetable: scheduleWithOddTimetables[day],
-  }))
-)
-
-const forHoursAndMinutes = formatWeeklySchedule(
-  ORDERED_WEEK_DAYS.map((day) => ({
-    day,
-    timetable: scheduleWithHoursAndMinutes[day],
-  }))
-)
+const forClosesNextDay = formatWeeklySchedule(scheduleWithClosesNextDaySlots)
+const forOddTimetable = formatWeeklySchedule(scheduleWithOddTimetable)
+const forHoursAndMinutes = formatWeeklySchedule(scheduleWithHoursAndMinutes)
 
 export const closesNextDayLabel = "Typical schedule. Also has slots that close on the next day."
 export const hoursAndMinutesLabel = "Times that have both hour and minute portions."
